@@ -5,7 +5,7 @@ m = 1;              % modulation index
 % T = 300;            % K 
 R_L = 1000;         % ohm, load resistance 
 F_n = 2;            % Amplifier noise figure 
-R_b = 2*1e9;            % Gbps 
+% R_b = 2*1e9;            % Gbps 
 k_A = 0.7;          % ionization factor
 Re = 1;             % responsivity
 
