@@ -50,6 +50,8 @@ legend('$R_b = 100 $ Mb/s ana','$R_b = 100 $ Mb/s sim',...
     '$R_b = 1 $ Gb/s ana','$R_b = 1 $ Gb/s sim', ...
     '$R_b = 2$ Gb/s ana','$R_b = 2 $ Gb/s sim')
 grid on 
+xlabel('$C^2_n$', 'Interpreter','latex')
+ylabel('Bit Error Rate')
 ylim([1e-6 1])
 
 
