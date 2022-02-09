@@ -6,6 +6,7 @@ APD_gain = 15;
 
 
 P_t_dBm = -4; % dBm
+
 P_t = dbm2w(P_t_dBm); 
 a = a_func(L, d, phi, beta_v); 
 P_s = a * P_t;  
