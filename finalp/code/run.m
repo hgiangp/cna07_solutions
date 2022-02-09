@@ -1,10 +1,12 @@
 %% Figure 2 BER vs APD gain varying SI 
 
-APD_gain = 1:3:40; 
+% APD_gain = 1:3:40; 
+APD_gain = [15; 18]; 
 
-P_s_dBm = -28;     % dBm
+P_s_dBm = -10;     % dBm
 
-SI = [0.1, 0.3, 0.5];
+% SI = [0.1, 0.3, 0.5];
+SI = [0.1, 0.3]; 
 T = 300; 
 
 %----------------------------
