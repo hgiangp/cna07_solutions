@@ -7,7 +7,7 @@ sigma_X = sqrt(sigma_s_2_func(SI));
 
 % P_s = dbm2w(P_s_dBm);  
 
-no_slots = 1e4;  
+no_slots = 1e3;  
 
 time = linspace(0, 5, no_slots); 
 
