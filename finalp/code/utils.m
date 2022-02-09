@@ -19,7 +19,7 @@ mu_shot = 0;
 
 %----------------------
 
-Delta_f = R_b/2; 
+Delta_f = @(R_b) R_b/2; 
 
 %----------------------
 qfunc = @(x) 1/2 * erfc(x / sqrt(2)); 
@@ -28,9 +28,9 @@ P_t_func = @(P_s, f_c, a_i, t) P_s * (1 + m * cos(2 * pi * f_c * t) + a_i * pi);
 
 F_A_func = @(APD_gain) k_A * APD_gain + (1 - k_A)*(2 - 1/APD_gain); 
 
-sigma_th_2_func = @(T) (4 * k_B * T/R_L) * F_n * Delta_f; 
+sigma_th_2_func = @(T, Delta_f) (4 * k_B * T/R_L) * F_n * Delta_f; 
 
-sigma_sh_2_func = @(ADP_gain, P_s, x) 2 * q * ADP_gain^2 * F_A_func(ADP_gain) * Re * (m / 4 * P_s * x) * Delta_f; 
+sigma_sh_2_func = @(ADP_gain, P_s, x, Delta_f) 2 * q * ADP_gain^2 * F_A_func(ADP_gain) * Re * (m / 4 * P_s * x) * Delta_f; 
 
 sigma_s_2_func  = @(SI) log(SI + 1); 
 

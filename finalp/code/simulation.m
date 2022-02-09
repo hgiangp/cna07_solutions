@@ -1,4 +1,4 @@
-function [ber] = simulation(SI, APD_gain, P_s, T)
+function [ber] = simulation(SI, APD_gain, P_s, T, R_b)
 
 utils; 
 
@@ -7,7 +7,7 @@ sigma_X = sqrt(sigma_s_2_func(SI));
 
 % P_s = dbm2w(P_s_dBm);  
 
-no_slots = 1e6;  
+no_slots = 1e4;  
 
 time = linspace(0, 5, no_slots); 
 
@@ -16,14 +16,16 @@ r_t = zeros(1, length(time));
 
 num_errors = 0; 
 
+delta_f = Delta_f(R_b); 
+
 for idx = 1:length(time)
    
     a_i = (rand() > 0.5); 
 
     x_t = lognrnd(mu_X, sigma_X);
 
-    shot_noise = normrnd(mu_shot, sqrt(sigma_sh_2_func(APD_gain, P_s, x_t))); 
-    thermal_noise = normrnd(mu_thermal, sqrt(sigma_th_2_func(T))); 
+    shot_noise = normrnd(mu_shot, sqrt(sigma_sh_2_func(APD_gain, P_s, x_t, delta_f))); 
+    thermal_noise = normrnd(mu_thermal, sqrt(sigma_th_2_func(T, delta_f))); 
     i_t = 1/4 * m * Re * APD_gain * P_s * x_t; 
     
     if a_i == 1
