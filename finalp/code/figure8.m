@@ -51,7 +51,7 @@ legend(h1, 'R_b = 100 Mb/s', 'R_b = 200 Mb/s', ...
 grid on 
 xlabel('$C^2_n$', 'Interpreter','latex')
 ylabel('Bit Error Rate')
-ylim([1e-9 1])
+ylim([1e-6 0.12])
 
 
 
