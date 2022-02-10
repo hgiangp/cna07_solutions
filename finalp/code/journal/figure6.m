@@ -25,7 +25,7 @@ ber_sim = zeros(length(C_n_2), length(P_t_dBm));
 for isi = 1:length(C_n_2)
     for idx = 1:length(P_s)
         ber_ana(isi, idx) = analysis2(C_n_2(isi), APD_gain, P_s(idx), T, R_b); 
-%         ber_sim(isi, idx) = simulation(si, APD_gain, P_s(idx), T, R_b); 
+        ber_sim(isi, idx) = simulation2(C_n_2(isi), APD_gain, P_s(idx), T, R_b); 
     end
 end 
 
@@ -35,10 +35,10 @@ sim = {'o', '+'};
 for isi = 1:length(C_n_2)
     semilogy(P_t_dBm, ber_ana(isi, :), string(ana(isi)));
     hold on 
-%     semilogy(P_t_dBm, ber_sim(isi, :), string(sim(isi))); 
+    semilogy(P_t_dBm, ber_sim(isi, :), string(sim(isi))); 
 end 
 grid on 
-ylim([1e-6 1])
+ylim([1e-7 1])
 
 legend('$C^2_n = 6 \times 10^{-15}$ analysis', '$C^2_n = 6 \times 10^{-15}$ simulation', '$C^2_n = 2 \times 10^{-14}$ analysis', '$C^2_n = 2 \times 10^{-14}$ simulation','Interpreter', 'Latex')
 

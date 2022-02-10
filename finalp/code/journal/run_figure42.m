@@ -31,19 +31,22 @@ for isi = 1:length(C_n_2)
     c_n_2 = C_n_2(isi); 
     for idx = 1:length(APD_gain)
         ber_ana(isi, idx) = analysis2(c_n_2, APD_gain(idx), P_s, T, R_b); 
+        ber_sim(isi, idx) = simulation2(c_n_2, APD_gain(idx), P_s, T, R_b); 
     end
 end 
 
-makerr = {'-o', '-x', '-s'}; 
+
+ana = {'-', '-'}; 
+sim = {'o', '+'}; 
 
 for isi = 1:length(C_n_2)
-    ma = string(makerr(isi))
-    semilogy(APD_gain, ber_ana(isi, :), ma);
+    semilogy(APD_gain, ber_ana(isi, :),  string(ana(isi)));
     hold on
-%     semilogy(APD_gain, ber_sim(isi, :), ma); 
+    semilogy(APD_gain, ber_sim(isi, :), string(sim(isi))); 
 end 
 grid on
 ylim([1e-10 1])
+legend('$C^2_n = 6 \times 10^{-15}$ analysis', '$C^2_n = 6 \times 10^{-15}$ simulation', '$C^2_n = 2 \times 10^{-14}$ analysis', '$C^2_n = 2 \times 10^{-14}$ simulation','Interpreter', 'Latex')
 
 
 % legend('SI = 0.1', 'SI = 0.3', 'SI = 0.5')
