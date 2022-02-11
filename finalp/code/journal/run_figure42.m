@@ -47,7 +47,8 @@ end
 grid on
 ylim([1e-10 1])
 legend('$C^2_n = 6 \times 10^{-15}$ analysis', '$C^2_n = 6 \times 10^{-15}$ simulation', '$C^2_n = 2 \times 10^{-14}$ analysis', '$C^2_n = 2 \times 10^{-14}$ simulation','Interpreter', 'Latex')
-
+xlabel("Average APD gain")
+ylabel("Bit error rate")
 
 % legend('SI = 0.1', 'SI = 0.3', 'SI = 0.5')
 
